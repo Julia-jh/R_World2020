@@ -6,7 +6,7 @@
 # 일련의 복잡한 과정
 # 데이터 분석: 통계적 추론을 하나의 구성 요소
 # 데이터 과학의 가장 중요한 도전
-# : 폭발적인 양의 원시 데이터를 활용 가능한 형태의 정보로 변환하는 것것
+# : 폭발적인 양의 원시 데이터를 활용 가능한 형태의 정보로 변환하는 것
 # 
 # 1.1 Kinds of data
 # continuous: time
@@ -21,4 +21,57 @@
 # outcome: dependence variables, goals
 # record: row, case, pattern, sample
 # 
-#  
+# 1.3 location estimation
+# mean: sum / count
+# weighted mean: sum(individual * weight) / sum(weight)
+# median: 50th percentile 
+# weighted median: ?-?
+# trimmed mean: mean removing extreme value
+# robust: means resistant
+# outlier: sth very different others
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
