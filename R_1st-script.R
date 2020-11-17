@@ -25,30 +25,48 @@
 # mean: sum / count
 # weighted mean: sum(individual * weight) / sum(weight)
 # median: 50th percentile 
-# weighted median: ?-?
+# weighted median: 50th percentile of sum(individual * weight) / sum(weight)
 # trimmed mean: mean removing extreme value
 # robust: means resistant
 # outlier: sth very different others
+#
+# exercise) 1.3.3
+state <- read.csv(file="data/state.csv")
+mean(state[["Population"]])
+mean(state[["Population"]], trim=0.1) # trim = reducing 10% both ends
+median(state[["Population"]])
+weighted.mean(state[["Murder.Rate"]], w=state[["Population"]])
+# install.packages("matrixStats")
+library("matrixStats")
+weightedMedian(state[["Murder.Rate"]], w=state[["Population"]])
 # 
-# lalalala
+# 1.4 variability estimation
+# deviation: error
+# variance: sum(deviation(w/ mean)^2) / n-1
+# standard deviation: square root (variance), l2 norm
+# mean absolute deviation: mean(absolute(deviation(w/ mean))), l1 norm
+# median absolute deviation from the median: median(absolute(deviation(w/ median)))
+# range: difference between max and min
+# order statistics: order
+# percentile: number where a certain percentage of scores fall below that number
+# interquartile range: 75th percentile - 25th percentile, IQR
 # 
+# exercise) 1.4.3
+state <- read.csv(file="data/state.csv")
+sd(state[["Population"]])
+IQR(state[["Population"]])
+mad(state[["Population"]])
 # 
+# 1.5 explore data variance
+# box-plot: 
+# frequency table: 
+# histogram: 
+# density plot: 
 # 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
+# exercise) 1.5.1
+state <- read.csv(file="data/state.csv")
+quantile(state[["Murder.Rate"]], p=c(.05, .25, .5, .75, .95))
+
 # 
 # 
 # 
