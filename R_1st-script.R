@@ -25,21 +25,31 @@
 # mean: sum / count
 # weighted mean: sum(individual * weight) / sum(weight)
 # median: 50th percentile 
-# weighted median: ?-?
+# weighted median: 50th percentile of sum(individual * weight) / sum(weight)
 # trimmed mean: mean removing extreme value
 # robust: means resistant
 # outlier: sth very different others
+#
+# exercise) 1.3.3
+state <- read.csv(file="data/state.csv")
+mean(state[["Population"]])
+mean(state[["Population"]], trim=0.1) # trim = reducing 10% both ends
+median(state[["Population"]])
+weighted.mean(state[["Murder.Rate"]], w=state[["Population"]])
+# install.packages("matrixStats")
+library("matrixStats")
+weightedMedian(state[["Murder.Rate"]], w=state[["Population"]])
 # 
-# lalalala
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
+# 1.4 variability estimation
+# deviation: 
+# variance: 
+# standard deviation: 
+# mean absolute deviation: 
+# median absolute deviation from the median: 
+# range: 
+# order statistics: 
+# percentile: 
+# inerquartile range: 
 # 
 # 
 # 
