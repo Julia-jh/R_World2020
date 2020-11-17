@@ -30,7 +30,7 @@
 # robust: means resistant
 # outlier: sth very different others
 # 
-# lalalalas
+# lalalala
 # 
 # 
 # 
