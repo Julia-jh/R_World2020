@@ -8,3 +8,6 @@ Construction of R_1st-script.R
 explanation > definition > exercise
 
 I should've done more than that
+
+ctrl + L > remove console
+rm(list = ls()) > remove environment

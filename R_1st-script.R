@@ -31,14 +31,17 @@
 # outlier: sth very different others
 #
 # exercise) 1.3.3
-state <- read.csv(file="data/state.csv")
+state <- read.csv(file = "data/state.csv")
 mean(state[["Population"]])
-mean(state[["Population"]], trim=0.1) # trim = reducing 10% both ends
+mean(state[["Population"]],
+     trim = 0.1) # trim = reducing 10% both ends
 median(state[["Population"]])
-weighted.mean(state[["Murder.Rate"]], w=state[["Population"]])
+weighted.mean(state[["Murder.Rate"]],
+              w = state[["Population"]])
 # install.packages("matrixStats")
 library("matrixStats")
-weightedMedian(state[["Murder.Rate"]], w=state[["Population"]])
+weightedMedian(state[["Murder.Rate"]],
+              w = state[["Population"]])
 # 
 # 1.4 variability estimation
 # deviation: error
@@ -52,35 +55,90 @@ weightedMedian(state[["Murder.Rate"]], w=state[["Population"]])
 # interquartile range: 75th percentile - 25th percentile, IQR
 # 
 # exercise) 1.4.3
-state <- read.csv(file="data/state.csv")
+state <- read.csv(file = "data/state.csv")
 sd(state[["Population"]])
 IQR(state[["Population"]])
 mad(state[["Population"]])
 # 
 # 1.5 explore data variance
-# box-plot: 
-# frequency table: 
-# histogram: 
-# density plot: 
+# box-plot: box w/ whisker
+# frequency table: every interval has same cardinality
+# histogram: graphic of frequency table, x: interval, y: frequency
+# density plot: mostly use kernel density estimation
 # 
 # exercise) 1.5.1
-state <- read.csv(file="data/state.csv")
-quantile(state[["Murder.Rate"]], p=c(.05, .25, .5, .75, .95))
-
+state <- read.csv(file = "data/state.csv")
+quantile(state[["Murder.Rate"]],
+         p = c(.05, .25, .5, .75, .95))
+boxplot(state[["Population"]]/1000000,
+        ylab = "Population (milions)")
 # 
+# exercise) 1.5.2
+state <- read.csv(file = "data/state.csv")
+breaks <- seq(from = min(state[["Population"]]),
+              to = max(state[["Population"]]),
+              length = 11)
+pop_freq <- cut(state[["Population"]],
+                breaks = breaks,
+                right = TRUE,
+                include.lowest = TRUE)
+table(pop_freq)
+hist(state[["Population"]],
+     breaks = breaks)
 # 
+# exercise) 1.5.3
+state <- read.csv(file = "data/state.csv")
+hist(state[["Murder.Rate"]],
+     freq = FALSE)
+lines(density(state[["Murder.Rate"]]),
+      lwd = 3,
+      col = "blue")
 # 
+# 1.6 explore the binary data & categorical data
+# mode: value that appears most frequently in a data set
+# expected value: weighted mean of category
+# bar chart
+# pie chart
 # 
+# exercise 1.6)
+dfw <- read.csv(file = "data/dfw_airline.csv")
+barplot(as.matrix(dfw)/6,
+        cex.axis = .5)
 # 
+# 1.7 Correlation
 # 
+# correlation coefficient: -1~1
+# correlation matrix: 
+# scatterplot
 # 
+# exercise 1.7)
+sp500_px <- read.csv(file = "data/sp500_data.csv")
+sp500_sym <- read.csv(file = "data/sp500_sectors.csv",
+                      stringsAsFactors = FALSE)
+etfs <- sp500_px[row.names(sp500_px) > "2012-07-01",
+                 sp500_sym[sp500_sym$sector == "etf", "symbol"]]
+# install.packages("corrplot")
+library(corrplot)
+corrplot(cor(etfs), method = "ellipse")
 # 
+# exercise 1.7.1)
+telecom <- sp500_px[,sp500_sym[sp500_sym$sector == "telecommunications_services", 'symbol']]
+telecom <- telecom[row.names(telecom)>"2012-07-01", ]
+plot(telecom$T, telecom$VZ, xlab = "T", ylab = "VZ")
 # 
+# 1.8 explore more than two variables
 # 
+# contingency table: 
+# hexagonal binning: 
+# contour plot: 
+# violin plot: 
 # 
-# 
-# 
-# 
+# exercise 1.8.1)
+kc_tax <- read.csv(file = "data/kc_tax.csv")
+kc_tax0 <- subset(kc_tax, TaxAssessedValue < 750000 &
+                    SqFtTotLiving > 100 &
+                    SqFtTotLiving < 3500)
+nrow(kc_tax0)
 # 
 # 
 # 
