@@ -41,7 +41,7 @@ weighted.mean(state[["Murder.Rate"]],
 # install.packages("matrixStats")
 library("matrixStats")
 weightedMedian(state[["Murder.Rate"]],
-              w = state[["Population"]])
+               w = state[["Population"]])
 # 
 # 1.4 variability estimation
 # deviation: error
@@ -128,26 +128,48 @@ plot(telecom$T, telecom$VZ, xlab = "T", ylab = "VZ")
 # 
 # 1.8 explore more than two variables
 # 
-# contingency table: 
-# hexagonal binning: 
-# contour plot: 
-# violin plot: 
+# contingency table: frequency of more than two categorical variables
+# hexagonal binning
+# contour plot
+# violin plot 
 # 
-# exercise 1.8.1)
+# exercise 1.8.1-1)
 kc_tax <- read.csv(file = "data/kc_tax.csv")
 kc_tax0 <- subset(kc_tax, TaxAssessedValue < 750000 &
                     SqFtTotLiving > 100 &
                     SqFtTotLiving < 3500)
 nrow(kc_tax0)
 # 
+# exercise 1.8.1-2)
+# install.packages("ggplot2")
+# install.packages("hexbin")
+library(ggplot2)
+library(hexbin)
+ggplot(kc_tax0,
+       (aes(x = SqFtTotLiving, y = TaxAssessedValue))) +
+  stat_binhex(colour = "white") +
+  theme_bw() + 
+  scale_fill_gradient(low = "white", high = "purple") + 
+  labs(x = "Finished Square Feet", y = "Tax Assessed Value")
 # 
+# exercise 1.8.1-3)
+# install.packages("Rcpp")
+library(Rcpp)
+ggplot(kc_tax0,
+       aes(SqFtTotLiving, TaxAssessedValue)) +
+  theme_bw() + 
+  geom_point(colour = "blue", alpha = 0.1) +
+  geom_density2d(colour = "white") + 
+  labs(x = "Finished Square Feet", y = "Tax Assessed Value")
 # 
+# exercise 1.8.2
+
+
 # 
+# exercise 1.8.3
+
+
 # 
-# 
-# 
-# 
-# 
-# 
-# 
+# exercise 1.8.4
+
 # 
