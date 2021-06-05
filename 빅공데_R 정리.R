@@ -17,8 +17,9 @@
 # update.packages()
 #
 # - 패키지 삭제
-# remove.packages("패캐지명")
+# remove.packages("패키지명")
 #
+# 
 # - R 기본사항
 # - 대소문자 구분
 # - 종료 명령어: q()
@@ -26,6 +27,7 @@
 # - setwd("작업디렉토리")
 # - 실행 명령어: crtl + R
 # - 주석처리: # 주석내용~
+
 #
 #
 #
@@ -77,7 +79,6 @@ pet
 
 number <- factor(c("18won", "24won", "24won", "33won", "33won", "33won", "18won"), ordered = TRUE)
 number
-
 
 
 # ******************************************************
@@ -261,7 +262,7 @@ df <- data.frame(a, result); df
 
 a <- c(10, 13, 17, 8, 20)
 result <- c(ifelse(a > mean(a), "평균초과",
-                 ifelse(a < mean(a), "평균 미만", "평균값"))); result
+                   ifelse(a < mean(a), "평균 미만", "평균값"))); result
 
 df2 <- data.frame(a, result); df2
 
@@ -403,7 +404,7 @@ basicst <- function(x){
   avar <- var(a)
   asd <- sd(a)
   totinfo <- list(최소값 = amin, 최대값 = amax,
-                  평균 = amean, 분산 = avar, 표준편차 = asd)
+                     평균 = amean, 분산 = avar, 표준편차 = asd)
   return(totinfo)
 }
 a <- c(68, 75, 80, 85, 45, 70, 95, 55); a
@@ -452,7 +453,7 @@ df <- read.table(file = "clipboard", sep = "\t", header = TRUE); df
 
 
 # ******************************************************
-#
+# 
 # 18, 19, 20. plot() 함수-1, 2, 3
 
 
@@ -487,4 +488,4 @@ df <- read.table(file = "clipboard", sep = "\t", header = TRUE); df
 
 
 
-# ******************************************************
+# *****************************************************
